@@ -1,12 +1,14 @@
 import React from 'react';
 
 const CharacterPreview = ({ character }) => {
-  const { name, class: characterClass, stats } = character;
+  const { name, class: characterClass, stats, selectedBackstory } = character;
 
   return (
     <div className="character-preview">
+        
       <h3 className="preview-header">Character Preview</h3>
       <p><span className="label">Name:</span> {name}</p>
+      
       <p><span className="label">Class:</span> {characterClass}</p>
       <div className="stats">
         <p><span className="label">Strength:</span> {stats.strength}</p>

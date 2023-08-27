@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import CharacterCreation from './components/CharacterCreation';
 import CharacterPreviewPage from './components/CharacterPreviewPage';
+import CharacterMain from './components/CharacterMain';
 import './index.css';
 
 function App() {
   const [createdCharacter, setCreatedCharacter] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
+  const [confirmChar, setConfirmChar] = useState(false);
   const [characterCreationState, setCharacterCreationState] = useState({
     characterName: '',
     selectedClass: '',
@@ -28,20 +30,25 @@ function App() {
   const handleConfirm = () => {
     // Handle confirm logic (e.g., save character)
     setShowPreview(false);
+    setConfirmChar(true);
   };
 
   const handleBack = () => {
     setShowPreview(false);
-    setCreatedCharacter(null);
+    console.log(createdCharacter)
   };
 
   return (
     <div className="App">
-      {!showPreview && (
+      {confirmChar && !showPreview && (
+<CharacterMain character={createdCharacter} />      )}
+      {!showPreview && !confirmChar && (
         <CharacterCreation
-          state={characterCreationState}
-          setState={setCharacterCreationState}
+          state={createdCharacter}
+          defaul={characterCreationState}
+          updateChar={setCharacterCreationState}
           onCreateCharacter={handleCreateCharacter}
+          
         />
       )}
       {showPreview && createdCharacter && (
@@ -52,7 +59,9 @@ function App() {
         />
       )}
     </div>
+    
   );
+ 
 }
 
 export default App;
