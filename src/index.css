@@ -1,13 +1,95 @@
+/* App.css */
 body {
+  font-family: 'Old Standard TT', serif;
+  background-color: #221e1a;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  background-color: #322d27;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  color: #d9d1bf;
 }
+
+.header {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.input-container select,
+.input-container input {
+  width: 60%;
+  padding: 5px;
+  border: none;
+  background-color: #322d27;
+  color: #d9d1bf;
+}
+
+.input-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><polygon points="0,0 10,0 5,5" fill="%23d9d1bf"/></svg>');
+  background-position: calc(100% - 10px) center;
+  background-repeat: no-repeat;
+  background-size: 8px 4px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.stats input {
+  width: 50px;
+  padding: 5px;
+  border: none;
+  background-color: #322d27;
+  color: #d9d1bf;
+}
+
+.remaining-points {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.button-container {
+  margin-top: 25px;
+}
+
+.button-container button {
+  padding: 8px 15px;
+  background-color: #d9d1bf;
+  color: #221e1a;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #af9f8f;
+}
+
