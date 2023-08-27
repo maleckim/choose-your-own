@@ -1,8 +1,10 @@
-
-
 import React from 'react';
 
-const CharacterConfirmation = ({ character, selectedBackstory, selectedItem }) => {
+const CharacterConfirmation = ({
+  character,
+  selectedBackstory,
+  selectedItem,
+}) => {
   return (
     <div className="confirmation-container">
       <div className="character-info">

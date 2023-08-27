@@ -35,20 +35,20 @@ function App() {
 
   const handleBack = () => {
     setShowPreview(false);
-    console.log(createdCharacter)
+    console.log(createdCharacter);
   };
 
   return (
     <div className="App">
       {confirmChar && !showPreview && (
-<CharacterMain character={createdCharacter} />      )}
+        <CharacterMain character={createdCharacter} />
+      )}
       {!showPreview && !confirmChar && (
         <CharacterCreation
           state={createdCharacter}
           defaul={characterCreationState}
           updateChar={setCharacterCreationState}
           onCreateCharacter={handleCreateCharacter}
-          
         />
       )}
       {showPreview && createdCharacter && (
@@ -59,9 +59,7 @@ function App() {
         />
       )}
     </div>
-    
   );
- 
 }
 
 export default App;
