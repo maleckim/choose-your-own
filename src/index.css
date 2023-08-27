@@ -1,7 +1,7 @@
 /* App.css */
 body {
-  font-family: 'Old Standard TT', serif;
-  background-color: #221e1a;
+  font-family: 'Courier New', monospace;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,17 +11,16 @@ body {
 }
 
 .container {
-  background-color: #322d27;
-  border-radius: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  border: 1px solid #ccc;
   padding: 20px;
   width: 400px;
-  text-align: center;
-  color: #d9d1bf;
+  text-align: left;
+  color: #000;
 }
 
 .header {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
@@ -41,17 +40,8 @@ body {
   width: 60%;
   padding: 5px;
   border: none;
-  background-color: #322d27;
-  color: #d9d1bf;
-}
-
-.input-container select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><polygon points="0,0 10,0 5,5" fill="%23d9d1bf"/></svg>');
-  background-position: calc(100% - 10px) center;
-  background-repeat: no-repeat;
-  background-size: 8px 4px;
+  background-color: #f0f0f0;
+  color: #000;
 }
 
 .stats {
@@ -65,17 +55,17 @@ body {
   width: 50px;
   padding: 5px;
   border: none;
-  background-color: #322d27;
-  color: #d9d1bf;
+  background-color: #f0f0f0;
+  color: #000;
 }
 
 .remaining-points {
-  font-size: 18px;
-  margin-top: 15px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .button-container {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .button-container button {
@@ -92,4 +82,3 @@ body {
 .button-container button:hover {
   background-color: #af9f8f;
 }
-
