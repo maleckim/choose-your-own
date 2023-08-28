@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CharacterCreation from './components/CharacterCreation';
 import CharacterPreviewPage from './components/CharacterPreviewPage';
 import CharacterMain from './components/CharacterMain';
+import CharacterStage from './components/CharacterStage'
 import './index.css';
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
   return (
     <div className="App">
       {confirmChar && !showPreview && (
-        <CharacterMain character={createdCharacter} />
+        // <CharacterMain character={createdCharacter} />
+        <CharacterStage character={createdCharacter} />
       )}
       {!showPreview && !confirmChar && (
         <CharacterCreation
