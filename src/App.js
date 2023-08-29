@@ -19,7 +19,7 @@ function App() {
       constitution: 10,
       intelligence: 10,
       wisdom: 10,
-      charisma: 10,
+      charisma: 9,
     },
   });
 
