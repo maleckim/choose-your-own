@@ -152,7 +152,7 @@ const CharacterCreation = ({
             </li>
           ))}
         </ul>
-        <button onClick={handleRandomBackstory}>Random Backstory</button>
+        <button onClick={handleRandomBackstory}>Random Backstory!</button>
       </div>
       </div>
       <div className='flex-box'>
