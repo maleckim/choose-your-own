@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const CharacterStage = ({ character, dialogue }) => {
+const CharacterStage = ({ character, Act }) => {
     const { stats, name, selectedBackstory, selectedItem } = character;
 
     return (
@@ -13,7 +13,7 @@ const CharacterStage = ({ character, dialogue }) => {
                 })}
             </div>
             <div className="dialogue-container">
-
+                <Act />
             </div>
         </div>
     )

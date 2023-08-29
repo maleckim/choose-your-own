@@ -5,3 +5,5 @@ const FirstAct = () => {
         <p>first</p>
     )
 }
+
+export default FirstAct
