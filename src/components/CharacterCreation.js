@@ -135,7 +135,7 @@ const CharacterCreation = ({
     <div className="flex-container">
       <div className='flex-box'>
       <div className="backstory-selection">
-        <h3>Select Backstory:</h3>
+        <h3 className='label'>Select Backstory:</h3>
         <ul>
           {backstories.map((backstory, index) => (
             <li key={index}>
@@ -157,7 +157,7 @@ const CharacterCreation = ({
       </div>
       <div className='flex-box'>
       <div className="container">
-        <h2 className="header">Character Creation</h2>
+        <h3 className='label'>Character Creation</h3>
         <input
           type="text"
           placeholder="Character Name"
@@ -166,7 +166,7 @@ const CharacterCreation = ({
         />
 
         <div className="input-container">
-          <label className="label">Select Class:</label>
+          <h3 className='label'>Select Class:</h3>
           <select onChange={(e) => handleClassChange(e.target.value)}>
             <option value="">Choose a class</option>
             {Object.keys(classPresets).map((className) => (
@@ -194,11 +194,11 @@ const CharacterCreation = ({
       </div>
       <div className='flex-box'>
       <div className="stat-allocation">
-        <h3>Allocate Stats:</h3>
+        <h3 className='label'>Allocate Stats:</h3>
         <div className="stats">
           {Object.keys(stats).map((statName) => (
             <div key={statName}>
-              <label className="label">
+              <label>
                 {statName.charAt(0).toUpperCase() + statName.slice(1)}:
               </label>
               <input
@@ -214,7 +214,7 @@ const CharacterCreation = ({
       </div>
       <div className='flex-box'>
       <div className="item-selection">
-    <h3>Pick an Item:</h3>
+    <h3 className='label'>Pick an Item:</h3>
     <select onChange={(e) => setSelectedItem(e.target.value)}>
       <option>Choose an item</option>
       {items.map((item, index) => (
