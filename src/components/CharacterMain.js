@@ -1,7 +1,6 @@
 import React, { useState, useSyncExternalStore } from 'react';
 import pic1 from '../a-cat-dressed-like-the-grim-reaper-smoking-a-cigarette.png';
 
-
 function performSkillCheck(skillModifier) {
   const d20Roll = rollD20(); // Assuming you have a function to roll a d20
   const result = d20Roll + skillModifier;
@@ -9,7 +8,7 @@ function performSkillCheck(skillModifier) {
   return {
     roll: d20Roll,
     total: result,
-    success: result >= 10 // A basic success check, you can adjust the threshold
+    success: result >= 10, // A basic success check, you can adjust the threshold
   };
 }
 
@@ -24,11 +23,14 @@ const dialogue = [
 ];
 
 const sceneOneUserDialogue = {
-  1: ['what the fu** is up with you', 'can i get one of them smokes', 'youre dead bucko'],
+  1: [
+    'what the fu** is up with you',
+    'can i get one of them smokes',
+    'youre dead bucko',
+  ],
   2: ['tbh i hope i never see you again', 'weird smoking cat'],
-  3: false
-}
-
+  3: false,
+};
 
 const dialogueHolder = {
   dialogueFirstResponse: ['it is not whats wrong with I , etc etc'],
@@ -37,43 +39,53 @@ const dialogueHolder = {
       const modifier = (num - 10) / 2;
       const skillCheckResult = performSkillCheck(modifier);
       if (skillCheckResult === true) {
-        return this.successLine
+        return this.successLine;
       } else {
-        return this.failLine
+        return this.failLine;
       }
     },
-    successLine: ['sure you can have a smoke... etc', 'weird story about smoking', 'im happy we bonded'],
-    failLine: ['you are a fool to believe i would share with the likes of u cretin', 'you sully my cigarettes from mere proximity u dote', 'you will forever be my enemy']
+    successLine: [
+      'sure you can have a smoke... etc',
+      'weird story about smoking',
+      'im happy we bonded',
+    ],
+    failLine: [
+      'you are a fool to believe i would share with the likes of u cretin',
+      'you sully my cigarettes from mere proximity u dote',
+      'you will forever be my enemy',
+    ],
   },
-  dialogueThirdResponse:{
+  dialogueThirdResponse: {
     //trigger fight or something
   },
-}
+};
 
 const CharacterMain = ({ character }) => {
   const { stats, name, selectedBackstory, selectedItem } = character;
   const [currentDialogue, setDialogue] = useState(0);
-  const [dialogueObj, setDialogueObj] = useState(null || dialogue)
-  const [userDialogueCounter, setUserDialogueCounter] = useState(1)
-  const [currentUserDialogueObject, setCurrentUserDialogueObject] = useState(null || sceneOneUserDialogue)
+  const [dialogueObj, setDialogueObj] = useState(null || dialogue);
+  const [userDialogueCounter, setUserDialogueCounter] = useState(1);
+  const [currentUserDialogueObject, setCurrentUserDialogueObject] = useState(
+    null || sceneOneUserDialogue,
+  );
   const [userDialogueStatus, setUserDialogueStatus] = useState(true);
   const parseStat = Object.entries(stats);
   const incrementDialogue = (bool) => {
-    bool ? setDialogue(currentDialogue + 1) : setDialogue(currentDialogue)
+    bool ? setDialogue(currentDialogue + 1) : setDialogue(currentDialogue);
   };
 
   const userScript = (choice) => {
-    const newDialogueObject = Object.values(dialogueHolder)[choice]
+    const newDialogueObject = Object.values(dialogueHolder)[choice];
     if (newDialogueObject.skill) {
       const updatedDialogue = newDialogueObject.skill();
-      setDialogueObj(updatedDialogue)
-    }else{
-      setDialogueObj(newDialogueObject)
+      setDialogueObj(updatedDialogue);
+    } else {
+      setDialogueObj(newDialogueObject);
     }
-    
-    setDialogue(0)
-   setUserDialogueCounter(userDialogueCounter + 1)
-  }
+
+    setDialogue(0);
+    setUserDialogueCounter(userDialogueCounter + 1);
+  };
 
   return (
     <>
@@ -88,11 +100,22 @@ const CharacterMain = ({ character }) => {
         <img src={pic1}></img>
       </div>
       <div className="container">
-        {dialogueObj[currentDialogue] &&<> <p>{dialogueObj[currentDialogue]}</p><button onClick={() => incrementDialogue(true)}>Next</button></>}
-        {!dialogueObj[currentDialogue] && userDialogueStatus === true && currentUserDialogueObject[userDialogueCounter].map((choice, index) => (
-          <button key={index} onClick={() => userScript(index)}>{choice}</button>
-        ))}
-        
+        {dialogueObj[currentDialogue] && (
+          <>
+            {' '}
+            <p>{dialogueObj[currentDialogue]}</p>
+            <button onClick={() => incrementDialogue(true)}>Next</button>
+          </>
+        )}
+        {!dialogueObj[currentDialogue] &&
+          userDialogueStatus === true &&
+          currentUserDialogueObject[userDialogueCounter].map(
+            (choice, index) => (
+              <button key={index} onClick={() => userScript(index)}>
+                {choice}
+              </button>
+            ),
+          )}
       </div>
     </>
   );

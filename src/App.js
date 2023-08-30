@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import CharacterCreation from './components/CharacterCreation';
 import CharacterPreviewPage from './components/CharacterPreviewPage';
 import CharacterMain from './components/CharacterMain';
-import StagePresenter from './components/StagePresenter'
-import CharacterStage from './components/CharacterStage'
+import StagePresenter from './components/StagePresenter';
+import CharacterStage from './components/CharacterStage';
 import './index.css';
 
 function App() {

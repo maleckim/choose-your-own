@@ -1,23 +1,13 @@
-import React from "react";
-import CharacterStage from "./CharacterStage";
-import FirstAct from "../dialogue/FirstAct"
+import React from 'react';
+import CharacterStage from './CharacterStage';
+import FirstAct from '../dialogue/FirstAct';
 
-const StagePresenter = ({character}) => {
+const StagePresenter = ({ character }) => {
+  const DetermineAct = () => {
+    return <FirstAct />;
+  };
 
-    const DetermineAct = () => {
+  return <CharacterStage character={character} Act={DetermineAct} />;
+};
 
-        return (
-            <FirstAct />
-        )
-    }
-
-
-
-    return(
-        <CharacterStage character={character} Act={DetermineAct} />
-    )
-
-
-}
-
-export default StagePresenter
+export default StagePresenter;
