@@ -7,6 +7,7 @@ const FirstAct = () => {
     const [convoCount, setConvoCount] = useState();
     const [npcSpeaking, setNpcSpeaking] = useState(true)
     const [userDialogueCount, setUserDialogueCount] = useState(0);
+    const [npcReply, setNpcReply] = useState(null)
 
     const dialogue = {
         introDialogue: [
@@ -18,7 +19,7 @@ const FirstAct = () => {
             0: ['cool', 'rude', 'weird'],
             1: ['3', '3', '4']
         },
-        npcDialogueFirst:{
+        npcDialogueFirst: {
             0: 'cool',
             1: 'rude',
             2: 'weird'
@@ -43,11 +44,15 @@ const FirstAct = () => {
     }
 
     const renderFirstResponse = () => {
-        
+
+        return (
+            <p>{dialogue.npcDialogueFirst[npcReply]}</p>
+        )
     }
 
     const userDialogueHandler = (e) => {
         //increment dialogue and switch speaker
+        setNpcReply(parseFloat(e.target.value))
         console.log(e.target.value)
         setUserDialogueCount(userDialogueCount + 1)
         setNpcSpeaking(true)
@@ -57,7 +62,7 @@ const FirstAct = () => {
         const test = Object.values(dialogue.userResponses[userDialogueCount])
         return (
 
-            <p>{test.map(a => { return <button value={a} onClick={(e) => userDialogueHandler(e) }>{a}</button> })}</p>
+            <p>{test.map((a, b) => { return <button value={b} onClick={(e) => userDialogueHandler(e)}>{a}</button> })}</p>
 
         )
     }
@@ -74,6 +79,11 @@ const FirstAct = () => {
             return generateUserResponses();
         }
 
+        if (npcReply >= 0) {
+
+            return renderFirstResponse()
+        }
+
     }
 
     const handleClick = (e) => {
@@ -81,7 +91,7 @@ const FirstAct = () => {
             setDialogueCount(dialogueCount + 1);
         }
 
-       
+
     }
 
     return (
