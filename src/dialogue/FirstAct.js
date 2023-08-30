@@ -22,27 +22,30 @@ const FirstAct = () => {
 
 
     const renderDialogue = () => {
+        
 
-        if(dialogueCount >= 2) {
+        if(dialogueCount >= 3) {
             if(intro === true){
                 setIntro(false)
             }
-            setDialogueCount(dialogueCount=0)
-            setUserSpeaking(true)
-            
+            setNpcSpeaking(false)
+            setDialogueCount(0)
+               
         }
 
+       
+
+        
         if(intro === true){
             return(
                 <p>{dialogue.introDialogue[dialogueCount]}</p>
            )
         }
-        if(userSpeaking === true){
+        if(npcSpeaking !== true){
+            const test = Object.values(dialogue.userResponses[userDialogueCount])
             return(
                 
-                <div>{dialogue.userResponses[userDialogueCount].map(res => {
-                    console.log(res)
-                })}</div>
+                <p>{test.map(a => {return <button>{a}</button>})}</p>
 
             )
         }
@@ -54,14 +57,14 @@ const FirstAct = () => {
             setDialogueCount(dialogueCount + 1);
         }
         
-        if(userSpeaking === true){
-            setUserDialogueCount(userDialogueCount + 1);
-        }
+        // if(!npcSpeaking){
+        //     setUserDialogueCount(userDialogueCount + 1);
+        // }
     }
 
     return(
     <div>
-       <p>{renderDialogue()}</p>
+       {renderDialogue()}
        <p></p>
        <button onClick={(e) => handleClick(e)}>Click me</button>
     </div>
