@@ -34,11 +34,17 @@ const FirstAct = () => {
         )
     }
 
+    const incrementUserDialogue = () => {
+        //increment dialogue and switch speaker
+        setUserDialogueCount(userDialogueCount + 1)
+        setNpcSpeaking(true)
+    }
+
     const generateUserResponses = () => {
         const test = Object.values(dialogue.userResponses[userDialogueCount])
         return (
 
-            <p>{test.map(a => { return <button>{a}</button> })}</p>
+            <p>{test.map(a => { return <button onClick={() => incrementUserDialogue() }>{a}</button> })}</p>
 
         )
     }
@@ -62,9 +68,7 @@ const FirstAct = () => {
             setDialogueCount(dialogueCount + 1);
         }
 
-        // if(!npcSpeaking){
-        //     setUserDialogueCount(userDialogueCount + 1);
-        // }
+       
     }
 
     return (
